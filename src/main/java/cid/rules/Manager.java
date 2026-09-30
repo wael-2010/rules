@@ -1,5 +1,6 @@
 package cid.rules;
 
+import cid.rules.Orders.Rule;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;

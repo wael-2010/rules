@@ -1,5 +1,6 @@
 package cid.rules;
 
+import cid.rules.Orders.NoEating;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
@@ -17,15 +18,27 @@ public class Rules implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+
+		Manager.register(new NoEating());
+
+
+
+
+
+
+
+
+
+
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(CommandManager.literal("start").executes(ctx -> {
 				Manager.start(ctx.getSource().getServer());
-				ctx.getSource().sendFeedback(() -> Text.literal("Follow the Rules or DIE!"), true);
+				ctx.getSource().sendFeedback(() -> Text.literal("§cFollow the Rules or DIE!"), true);
 				return 1;
 			}));
 			dispatcher.register(CommandManager.literal("stop").executes(ctx -> {
 				Manager.stop(ctx.getSource().getServer());
-				ctx.getSource().sendFeedback(() -> Text.literal("You are Free , For now....."), true);
+				ctx.getSource().sendFeedback(() -> Text.literal("§2You are Free , For now....."), true);
 				return 1;
 			}));
 		});
