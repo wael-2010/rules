@@ -1,6 +1,7 @@
 package cid.rules;
 
 import cid.rules.Orders.NoEating;
+import cid.rules.Orders.NoSprinting;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
@@ -20,6 +21,7 @@ public class Rules implements ModInitializer {
 	public void onInitialize() {
 
 		Manager.register(new NoEating());
+		Manager.register(new NoSprinting());
 
 
 
