@@ -2,6 +2,10 @@ package cid.rules;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.minecraft.server.command.CommandManager;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import org.slf4j.Logger;
@@ -13,6 +17,19 @@ public class Rules implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-	}
+		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
+			dispatcher.register(CommandManager.literal("start").executes(ctx -> {
+				Manager.start(ctx.getSource().getServer());
+				ctx.getSource().sendFeedback(() -> Text.literal("Follow the Rules or DIE!"), true);
+				return 1;
+			}));
+			dispatcher.register(CommandManager.literal("stop").executes(ctx -> {
+				Manager.stop(ctx.getSource().getServer());
+				ctx.getSource().sendFeedback(() -> Text.literal("You are Free , For now....."), true);
+				return 1;
+			}));
+		});
 
-}
+		ServerTickEvents.END_SERVER_TICK.register(Manager::tick);
+
+	}}
