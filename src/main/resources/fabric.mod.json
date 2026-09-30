@@ -20,7 +20,8 @@
 		],
 		"fabric-datagen": [
 			"cid.rules.RulesDataGenerator"
-		]
+		],
+		"client": ["cid.rules.RulesClient"]
 	},
 	"mixins": [
 		"rules.mixins.json"
