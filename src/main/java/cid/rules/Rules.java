@@ -1,5 +1,6 @@
 package cid.rules;
 
+import cid.rules.Orders.NoBreaking;
 import cid.rules.Orders.NoEating;
 import cid.rules.Orders.NoJumping;
 import cid.rules.Orders.NoSprinting;
@@ -24,9 +25,7 @@ public class Rules implements ModInitializer {
 		Manager.register(new NoEating());
 		Manager.register(new NoSprinting());
         Manager.register(new NoJumping());
-
-
-
+		Manager.register(new NoBreaking());
 
 
 
