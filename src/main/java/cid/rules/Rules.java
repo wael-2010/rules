@@ -24,7 +24,6 @@ public class Rules implements ModInitializer {
         Manager.register(new NoJumping());
 		Manager.register(new NoBreaking());
 		Manager.register(new Dont_Move_HEAD());
-		Manager.register(new KillOrDie());
 
 
 
